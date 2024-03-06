@@ -1,4 +1,3 @@
-import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
 import {
   StyleSheet,
@@ -9,6 +8,7 @@ import {
   Button,
   Pressable,
   Modal,
+  StatusBar
 } from "react-native";
 
 const imageSource = require("./assets/adaptive-icon.png");
@@ -28,6 +28,7 @@ export default function App() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   return (
     <View style={styles.container}>
+      <StatusBar barStyle="dark-content" backgroundColor="green" hidden />
       <ScrollView>
         <Pressable onPress={ImagePressable}>
           <Image source={imageSource} style={styles.imageStyle} />
