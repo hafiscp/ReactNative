@@ -101,7 +101,9 @@ const styles = StyleSheet.create({
   },
   loadButton:{
     flexDirection:'row',
-    justifyContent:'center'
+    justifyContent:'center',
+    columnGap:10,
+    padding:1
   },
   styleModal: {
     backgroundColor: "red",
