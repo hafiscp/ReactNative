@@ -8,7 +8,8 @@ import {
   Button,
   Pressable,
   Modal,
-  StatusBar
+  StatusBar,
+  ActivityIndicator
 } from "react-native";
 
 const imageSource = require("./assets/adaptive-icon.png");
@@ -26,12 +27,18 @@ const TextPressable = () => {
 
 export default function App() {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isActivityIndicationVisibile, setActivityIndicatorVisible] = useState(false)
   return (
     <View style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="green" hidden />
       <ScrollView>
         <Pressable onPress={ImagePressable}>
           <Image source={imageSource} style={styles.imageStyle} />
+        <ActivityIndicator size="large" color="red" animating={isActivityIndicationVisibile}/>
+        <View style={styles.loadButton}>
+          <Button title="Load ON" onPress={()=>setActivityIndicatorVisible(true)}/>
+          <Button title="Load OFF" onPress={()=>setActivityIndicatorVisible(false)}/>
+        </View>
         </Pressable>
 
         <Pressable onPress={TextPressable}>
@@ -91,6 +98,10 @@ const styles = StyleSheet.create({
     flex: 2,
     height: 300,
     width: 300,
+  },
+  loadButton:{
+    flexDirection:'row',
+    justifyContent:'center'
   },
   styleModal: {
     backgroundColor: "red",
