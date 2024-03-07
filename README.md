@@ -1,3 +1,3 @@
 ## Recent Screenshot
 
-![Recent Screenshot](./assets/Screenshots/ActivityIndicator.png)
+![Recent Screenshot](./assets/Screenshots/Alert.png)

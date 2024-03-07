@@ -9,7 +9,8 @@ import {
   Pressable,
   Modal,
   StatusBar,
-  ActivityIndicator
+  ActivityIndicator,
+  Alert,
 } from "react-native";
 
 const imageSource = require("./assets/adaptive-icon.png");
@@ -27,18 +28,29 @@ const TextPressable = () => {
 
 export default function App() {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [isActivityIndicationVisibile, setActivityIndicatorVisible] = useState(false)
+  const [isActivityIndicationVisibile, setActivityIndicatorVisible] =
+    useState(false);
   return (
     <View style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="green" hidden />
       <ScrollView>
         <Pressable onPress={ImagePressable}>
           <Image source={imageSource} style={styles.imageStyle} />
-        <ActivityIndicator size="large" color="red" animating={isActivityIndicationVisibile}/>
-        <View style={styles.loadButton}>
-          <Button title="Load ON" onPress={()=>setActivityIndicatorVisible(true)}/>
-          <Button title="Load OFF" onPress={()=>setActivityIndicatorVisible(false)}/>
-        </View>
+          <ActivityIndicator
+            size="large"
+            color="red"
+            animating={isActivityIndicationVisibile}
+          />
+          <View style={styles.loadButton}>
+            <Button
+              title="Load ON"
+              onPress={() => setActivityIndicatorVisible(true)}
+            />
+            <Button
+              title="Load OFF"
+              onPress={() => setActivityIndicatorVisible(false)}
+            />
+          </View>
         </Pressable>
 
         <Pressable onPress={TextPressable}>
@@ -71,13 +83,22 @@ export default function App() {
           visible={isModalVisible}
           animationType="slide"
           presentationStyle="pageSheet"
-          onRequestClose={()=>setIsModalVisible(false)}
+          onRequestClose={() => setIsModalVisible(false)}
         >
           <View style={styles.styleModal}>
-            <Text style={{color:"white"}}>Hi, Hello from Modal</Text>
-            <Button title="Close" onPress={()=>setIsModalVisible(false)}/>
+            <Text style={{ color: "white" }}>Hi, Hello from Modal</Text>
+            <Button title="Close" onPress={() => setIsModalVisible(false)} />
           </View>
         </Modal>
+        <Button
+          title="Alert Button"
+          onPress={() =>
+            Alert.alert("DANGER", "Click OK", [
+              { text: "Cancel", onPress: () => console.log("Cancel Pressed"),style:"cancel" },
+              { text: "OK", onPress: () => console.log("OK Pressed") },
+            ])
+          }
+        />
       </ScrollView>
     </View>
   );
@@ -99,11 +120,11 @@ const styles = StyleSheet.create({
     height: 300,
     width: 300,
   },
-  loadButton:{
-    flexDirection:'row',
-    justifyContent:'center',
-    columnGap:10,
-    padding:1
+  loadButton: {
+    flexDirection: "row",
+    justifyContent: "center",
+    columnGap: 10,
+    padding: 1,
   },
   styleModal: {
     backgroundColor: "red",
