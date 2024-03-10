@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, Text,ScrollView } from "react-native";
+import { View, StyleSheet, Text, ScrollView } from "react-native";
 import Box from "./components/Box";
 import MobileLearn from "./components/MobileLearn";
 import Greet from "./components/Greet";
@@ -8,18 +8,38 @@ import DarkMode from "./components/DarkMode";
 export default function App() {
   return (
     // <ScrollView>
-      <View style={styles.container}>
-        {/* <MobileLearn /> */}
-        {/* <DarkMode /> */}
-        {/* <Greet name="Hafis" /> */}
-        {/* <Greet name="My Friend" /> */}
-        <Box style={{backgroundColor:"blue", height:140}}> Hello1 </Box>
-        <Box style={{backgroundColor:"red", }}> Hello2 </Box>
-        <Box style={{backgroundColor:"grey", flexGrow:1}}> Hello3 </Box>
-        <Box style={{backgroundColor:"green",flexGrow:1}}> Hello4 </Box>
-        <Box style={{backgroundColor:"purple"}}> Hello5 </Box>
-        <Box style={{backgroundColor:"plum"}}> Hello6 </Box>
-      </View>
+    <View style={styles.container}>
+      {/* <MobileLearn /> */}
+      {/* <DarkMode /> */}
+      {/* <Greet name="Hafis" /> */}
+      {/* <Greet name="My Friend" /> */}
+      <Box
+        style={{
+          backgroundColor: "blue",
+          position: "absolute",
+          top: 200,
+          left: 200,
+        }}
+      >
+        {" "}
+        Hello1{" "}
+      </Box>
+      <Box style={{ backgroundColor: "red" }}> Hello2 </Box>
+      <Box style={{ backgroundColor: "grey" }}> Hello3 </Box>
+      <Box
+        style={{
+          backgroundColor: "green",
+          position: "absolute",
+          top: 100,
+          left: 100,
+        }}
+      >
+        {" "}
+        Hello4{" "}
+      </Box>
+      <Box style={{ backgroundColor: "purple" }}> Hello5 </Box>
+      <Box style={{ backgroundColor: "plum" }}> Hello6 </Box>
+    </View>
     // </ScrollView>
   );
 }
@@ -36,8 +56,7 @@ const styles = StyleSheet.create({
     // rowGap:10,
     // columnGap:10,
     marginTop: 50,
-    borderWidth:5,
-    borderColor:"black"
+    borderWidth: 5,
+    borderColor: "black",
   },
- 
 });
