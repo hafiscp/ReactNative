@@ -13,10 +13,10 @@ export default function App() {
         {/* <DarkMode /> */}
         {/* <Greet name="Hafis" /> */}
         {/* <Greet name="My Friend" /> */}
-        <Box style={{backgroundColor:"blue"}}> Hello1 </Box>
-        <Box style={{backgroundColor:"red"}}> Hello2 </Box>
-        <Box style={{backgroundColor:"grey"}}> Hello3 </Box>
-        <Box style={{backgroundColor:"green"}}> Hello4 </Box>
+        <Box style={{backgroundColor:"blue", height:140}}> Hello1 </Box>
+        <Box style={{backgroundColor:"red", }}> Hello2 </Box>
+        <Box style={{backgroundColor:"grey", flexGrow:1}}> Hello3 </Box>
+        <Box style={{backgroundColor:"green",flexGrow:1}}> Hello4 </Box>
         <Box style={{backgroundColor:"purple"}}> Hello5 </Box>
         <Box style={{backgroundColor:"plum"}}> Hello6 </Box>
       </View>
@@ -26,14 +26,15 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
+    flex: 1,
     // height:250,
-    alignItems: "flex-start",
+    // alignItems: "flex-start",
     justifyContent: "space-around",
-    flexWrap:"wrap",
-    flexDirection:"row",
-    rowGap:10,
-    columnGap:10,
+    // flexWrap:"wrap",
+    // flexDirection:"row",
+    // gap:10,
+    // rowGap:10,
+    // columnGap:10,
     marginTop: 50,
     borderWidth:5,
     borderColor:"black"
