@@ -1,5 +1,6 @@
 import React from "react";
-import { View, StyleSheet, Text, ScrollView } from "react-native";
+import { View, StyleSheet, Text, ScrollView, Dimensions } from "react-native";
+import Dynamic from "./components/Dynamic";
 import Box from "./components/Box";
 import MobileLearn from "./components/MobileLearn";
 import Greet from "./components/Greet";
@@ -13,50 +14,27 @@ export default function App() {
       {/* <DarkMode /> */}
       {/* <Greet name="Hafis" /> */}
       {/* <Greet name="My Friend" /> */}
-      <Box
-        style={{
-          backgroundColor: "blue",
-          position: "absolute",
-          top: 200,
-          left: 200,
-        }}
-      >
-        {" "}
-        Hello1{" "}
-      </Box>
-      <Box style={{ backgroundColor: "red" }}> Hello2 </Box>
-      <Box style={{ backgroundColor: "grey" }}> Hello3 </Box>
-      <Box
-        style={{
-          backgroundColor: "green",
-          position: "absolute",
-          top: 100,
-          left: 100,
-        }}
-      >
-        {" "}
-        Hello4{" "}
-      </Box>
-      <Box style={{ backgroundColor: "purple" }}> Hello5 </Box>
-      <Box style={{ backgroundColor: "plum" }}> Hello6 </Box>
+      {/* <Box style={{ backgroundColor: "red" }}> Hello1 </Box> */}
+      <Dynamic style={{ backgroundColor: "yellow" }} />
     </View>
     // </ScrollView>
   );
 }
 
+
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: "plum",
     flex: 1,
-    // height:250,
-    // alignItems: "flex-start",
-    justifyContent: "space-around",
+    alignItems: "center",
+    justifyContent: "center",
     // flexWrap:"wrap",
     // flexDirection:"row",
     // gap:10,
     // rowGap:10,
     // columnGap:10,
-    marginTop: 50,
-    borderWidth: 5,
-    borderColor: "black",
+    // marginTop: 50,
+    // borderWidth: 5,
+    // borderColor: "black",
   },
 });
