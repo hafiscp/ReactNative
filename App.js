@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     // columnGap:10,
     // marginTop: 50,
     // borderWidth: 5,
-    // borderColor: "black",
+    borderColor: "black",
   },
   safeContainer:{
     flex:1,
