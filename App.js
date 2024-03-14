@@ -1,5 +1,6 @@
 import React from "react";
 import { View, StyleSheet, Text, ScrollView, Dimensions, SafeAreaView } from "react-native";
+import PlatformMod from "./components/PlatformMod";
 import SafeView from "./components/SafeView";
 import Dynamic from "./components/Dynamic";
 import Box from "./components/Box";
@@ -10,7 +11,7 @@ import DarkMode from "./components/DarkMode";
 export default function App() {
   return (
     // <ScrollView>
-    <SafeAreaView style={styles.safeContainer}>
+    // <SafeAreaView style={styles.safeContainer}>
       <View style={styles.container}>
         {/* <MobileLearn /> */}
         {/* <DarkMode /> */}
@@ -18,9 +19,10 @@ export default function App() {
         {/* <Greet name="My Friend" /> */}
         {/* <Box style={{ backgroundColor: "red" }}> Hello1 </Box> */}
         {/* <Dynamic style={{ backgroundColor: "yellow" }} /> */}
-        <SafeView />
+        {/* <SafeView /> */}
+        <PlatformMod/>
       </View>
-    </SafeAreaView>
+    // </SafeAreaView>
     // </ScrollView>
   );
 }
@@ -28,9 +30,9 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "yellow",
+    // backgroundColor: "yellow",
     flex: 1,
-    alignItems: "center",
+    // alignItems: "center",
     // justifyContent: "center",
     // flexWrap:"wrap",
     // flexDirection:"row",
