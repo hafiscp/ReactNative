@@ -4,25 +4,23 @@ import {
   StyleSheet,
   Text,
   ScrollView,
+  FlatList,
   SafeAreaView,
   Platform,
   StatusBar,
 } from "react-native";
 import PokemonCardLayout from "./components/PokemonCard/PokemonCardLayout";
+import { charmanderData, bulbasaurData } from "./src/data/charmanderData.js";
 
 export default function App() {
-  const charmanderData = {
-    name: "Charmander",
-    image: require("./assets/charmander.png"),
-    type: "Fire",
-    hp: 39,
-    moves: ["Scratch", "Ember", "Growl", "Leer"],
-    weaknesses: ["Water", "Rock"],
-  };
-
+  const pokemonData = [charmanderData, bulbasaurData];
   return (
     <SafeAreaView style={styles.container}>
-      <PokemonCardLayout {...charmanderData} />
+      <FlatList
+        data={pokemonData}
+        renderItem={({ item }) => <PokemonCardLayout {...item} />}
+        keyExtractor={(item, index) => index.toString()}
+      />
     </SafeAreaView>
   );
 }
