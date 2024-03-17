@@ -1,3 +1,3 @@
 ## Recent Screenshot (Updates)
 
-![Recent Screenshot](./assets/Screenshots/pokemon1.png)
+![Recent Screenshot](./assets/Screenshots/pokemon3.png)
