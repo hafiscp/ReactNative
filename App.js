@@ -6,32 +6,49 @@ import {
   StatusBar,
   StyleSheet,
   ScrollView,
+  FlatList,
 } from "react-native";
 
 import pokemonList from "./data.json";
 
 export default function App() {
   return (
-    <ScrollView style={styles.mainContainer}>
-      <SafeAreaView style={styles.container}>
+    <SafeAreaView style={{ flex: 1 }}>
+      <View style={styles.container}>
         <View style={styles.card}>
-          {pokemonList.map((pokemon) => {
-            return (
-              <View key={pokemon.id} style={styles.list}>
-                <Text style={styles.listText}>{pokemon.type}</Text>
-                <Text style={styles.listText}>{pokemon.name}</Text>
-              </View>
-            );
-          })}
+          {/* {pokemonList.map((pokemon) => {
+              return (
+                <View key={pokemon.id} style={styles.list}>
+                  <Text style={styles.listText}>{pokemon.type}</Text>
+                  <Text style={styles.listText}>{pokemon.name}</Text>
+                </View>
+              );
+            })} */}
+          <FlatList
+            // data={}
+            renderItem={({ item }) => {
+              return (
+                <View key={item.id} style={styles.list}>
+                  <Text style={styles.listText}>{item.type}</Text>
+                  <Text style={styles.listText}>{item.name}</Text>
+                </View>
+              );
+            }}
+            keyExtractor={(item) => item.id.toString()}
+            ItemSeparatorComponent={<View style={{ height: 16 }}></View>}
+            ListEmptyComponent={<Text>No Items Found</Text>}
+          />
         </View>
-      </SafeAreaView>
-    </ScrollView>
+      </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  card: {
     marginTop: StatusBar.currentHeight,
     justifyContent: "center",
     margin: 20,
@@ -41,9 +58,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     borderWidth: 2,
     padding: 20,
-    marginBottom: 20,
     borderRadius: 20,
-    backgroundColor:"lightblue"
+    backgroundColor: "lightblue",
   },
   listText: {
     fontSize: 18,

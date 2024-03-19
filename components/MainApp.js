@@ -16,7 +16,7 @@ export default function App() {
         {/* <MobileLearn /> */}
         {/* <DarkMode /> */}
         {/* <Greet name="Hafis" /> */}
-        {/* <Greet name="My Friend" /> */}
+        <Greet name="My Friend" />
         {/* <Box style={{ backgroundColor: "red" }}> Hello1 </Box> */}
         {/* <Dynamic style={{ backgroundColor: "yellow" }} /> */}
         {/* <SafeView /> */}
