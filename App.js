@@ -25,7 +25,7 @@ export default function App() {
               );
             })} */}
           <FlatList
-            // data={}
+            data={pokemonList}
             renderItem={({ item }) => {
               return (
                 <View key={item.id} style={styles.list}>
@@ -37,6 +37,30 @@ export default function App() {
             keyExtractor={(item) => item.id.toString()}
             ItemSeparatorComponent={<View style={{ height: 16 }}></View>}
             ListEmptyComponent={<Text>No Items Found</Text>}
+            ListHeaderComponent={
+              <Text
+                style={{
+                  fontSize: 24,
+                  textAlign: "center",
+                  fontWeight: "bold",
+                  marginBottom: 16,
+                }}
+              >
+                This is the Header Component
+              </Text>
+            }
+            ListFooterComponent={
+              <Text
+                style={{
+                  fontSize: 24,
+                  textAlign: "center",
+                  fontWeight: "bold",
+                  marginBottom: 16,
+                }}
+              >
+                This is the Footer Component
+              </Text>
+            }
           />
         </View>
       </View>
