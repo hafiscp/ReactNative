@@ -6,61 +6,42 @@ import {
   StatusBar,
   StyleSheet,
   ScrollView,
+  SectionList,
   FlatList,
 } from "react-native";
 
 import pokemonList from "./data.json";
+import groupedpokemon from "./groupedpokemon.json";
 
 export default function App() {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
-        <View style={styles.card}>
-          {/* {pokemonList.map((pokemon) => {
-              return (
-                <View key={pokemon.id} style={styles.list}>
-                  <Text style={styles.listText}>{pokemon.type}</Text>
-                  <Text style={styles.listText}>{pokemon.name}</Text>
-                </View>
-              );
-            })} */}
-          <FlatList
-            data={pokemonList}
+        <View style={{ flex: 1 }}>
+          <SectionList
+            sections={groupedpokemon}
             renderItem={({ item }) => {
               return (
-                <View key={item.id} style={styles.list}>
-                  <Text style={styles.listText}>{item.type}</Text>
-                  <Text style={styles.listText}>{item.name}</Text>
+                <View style={styles.card}>
+                  <Text style={styles.listText}>{item}</Text>
                 </View>
               );
             }}
-            keyExtractor={(item) => item.id.toString()}
-            ItemSeparatorComponent={<View style={{ height: 16 }}></View>}
-            ListEmptyComponent={<Text>No Items Found</Text>}
-            ListHeaderComponent={
+            renderSectionHeader={({ section }) => (
               <Text
-                style={{
-                  fontSize: 24,
-                  textAlign: "center",
-                  fontWeight: "bold",
-                  marginBottom: 16,
-                }}
+                style={[
+                  styles.listText,
+                  {
+                    textAlign: "center",
+                    padding: 20,
+                    backgroundColor: "lightblue",
+                  },
+                ]}
               >
-                This is the Header Component
+                {section.type}
               </Text>
-            }
-            ListFooterComponent={
-              <Text
-                style={{
-                  fontSize: 24,
-                  textAlign: "center",
-                  fontWeight: "bold",
-                  marginBottom: 16,
-                }}
-              >
-                This is the Footer Component
-              </Text>
-            }
+            )}
+            SectionSeparatorComponent={() => <View style={{ height: 10 }} />}
           />
         </View>
       </View>
@@ -71,18 +52,23 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "palegreen",
   },
   card: {
     marginTop: StatusBar.currentHeight,
     justifyContent: "center",
     margin: 20,
+    borderWidth: 1,
+    borderRadius: 20,
+    borderColor: "black",
+    height: 60,
+    padding: 12,
+    backgroundColor: "white",
   },
   list: {
     flexDirection: "column",
     justifyContent: "space-around",
-    borderWidth: 2,
     padding: 20,
-    borderRadius: 20,
     backgroundColor: "lightblue",
   },
   listText: {
