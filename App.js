@@ -6,6 +6,7 @@ import {
   StatusBar,
   StyleSheet,
   TextInput,
+  Switch,
 } from "react-native";
 
 import { useState } from "react";
@@ -13,6 +14,7 @@ import { useState } from "react";
 export default function App() {
   const [number, setNumber] = useState("");
   const [message, setMessage] = useState("");
+  const [isDarkMode, setDarkMode] = useState(false);
   return (
     <SafeAreaView style={styles.container}>
       <View>
@@ -36,6 +38,15 @@ export default function App() {
         <Text style={styles.text}>My number is {number}</Text>
         <Text style={styles.text}>My message is {message}</Text>
       </View>
+      <View style={styles.darkModeContainer}>
+        <Text style={styles.darkMode}>Dark Mode</Text>
+        <Switch
+          value={isDarkMode}
+          onValueChange={() => setDarkMode((previous) => !previous)}
+          trackColor={{ false: "blue", true: "red" }}
+          thumbColor="orange"
+        />
+      </View>
     </SafeAreaView>
   );
 }
@@ -43,8 +54,15 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "yellow",
+    backgroundColor: "white",
     paddingTop: StatusBar.currentHeight,
+  },
+  darkModeContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-around",
+    backgroundColor: "lightyellow",
+    padding: 20,
   },
   input: {
     height: 40,
