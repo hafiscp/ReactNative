@@ -5,45 +5,18 @@ import {
   SafeAreaView,
   StatusBar,
   StyleSheet,
-  ScrollView,
-  SectionList,
-  FlatList,
+  TextInput,
 } from "react-native";
 
-import pokemonList from "./data.json";
-import groupedpokemon from "./groupedpokemon.json";
+import { useState } from "react";
 
 export default function App() {
+  const [name, setName] = useState("");
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <View style={styles.container}>
-        <View style={{ flex: 1 }}>
-          <SectionList
-            sections={groupedpokemon}
-            renderItem={({ item }) => {
-              return (
-                <View style={styles.card}>
-                  <Text style={styles.listText}>{item}</Text>
-                </View>
-              );
-            }}
-            renderSectionHeader={({ section }) => (
-              <Text
-                style={[
-                  styles.listText,
-                  {
-                    textAlign: "center",
-                    padding: 20,
-                    backgroundColor: "lightblue",
-                  },
-                ]}
-              >
-                {section.type}
-              </Text>
-            )}
-            SectionSeparatorComponent={() => <View style={{ height: 10 }} />}
-          />
-        </View>
+    <SafeAreaView style={styles.container}>
+      <View>
+        <TextInput style={styles.input} value={name} onChangeText={setName} />
+        <Text style={styles.text}>My name is {name}</Text>
       </View>
     </SafeAreaView>
   );
@@ -53,29 +26,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "palegreen",
+    paddingTop: StatusBar.currentHeight,
   },
-  card: {
-    marginTop: StatusBar.currentHeight,
-    justifyContent: "center",
-    margin: 20,
+  input: {
+    height: 40,
+    padding: 5,
+    margin: 15,
     borderWidth: 1,
-    borderRadius: 20,
-    borderColor: "black",
-    height: 60,
-    padding: 12,
-    backgroundColor: "white",
   },
-  list: {
-    flexDirection: "column",
-    justifyContent: "space-around",
-    padding: 20,
-    backgroundColor: "lightblue",
-  },
-  listText: {
-    fontSize: 18,
+  text: {
+    margin: 15,
+    padding: 5,
     fontWeight: "bold",
-  },
-  mainContainer: {
-    backgroundColor: "#f5f5f5",
   },
 });

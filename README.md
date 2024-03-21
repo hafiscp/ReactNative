@@ -1,3 +1,3 @@
 ## Recent Screenshot (Updates)
 
-![Recent Screenshot](./assets/Screenshots/SectionList.png)
+![Recent Screenshot](./assets/Screenshots/textinput.png)
