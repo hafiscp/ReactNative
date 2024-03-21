@@ -11,12 +11,22 @@ import {
 import { useState } from "react";
 
 export default function App() {
-  const [name, setName] = useState("");
+  const [number, setNumber] = useState("");
   return (
     <SafeAreaView style={styles.container}>
       <View>
-        <TextInput style={styles.input} value={name} onChangeText={setName} />
-        <Text style={styles.text}>My name is {name}</Text>
+        <TextInput
+          style={styles.input}
+          value={number}
+          onChangeText={setNumber}
+          placeholder="+91-XXXXXXXXXX"
+          // secureTextEntry
+          keyboardType="numeric"
+          autoCorrect={false}
+          autoCapitalize="none"
+
+        />
+        <Text style={styles.text}>My number is {number}</Text>
       </View>
     </SafeAreaView>
   );
@@ -25,7 +35,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "palegreen",
+    backgroundColor: "yellow",
     paddingTop: StatusBar.currentHeight,
   },
   input: {
