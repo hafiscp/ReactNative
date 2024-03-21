@@ -7,45 +7,35 @@ import {
   StyleSheet,
   TextInput,
   Switch,
+  Button,
 } from "react-native";
 
 import { useState } from "react";
 
 export default function App() {
-  const [number, setNumber] = useState("");
-  const [message, setMessage] = useState("");
-  const [isDarkMode, setDarkMode] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   return (
     <SafeAreaView style={styles.container}>
-      <View>
+      <View style={styles.formContainer}>
+        <Text style={styles.text}>Username</Text>
         <TextInput
-          style={styles.input}
-          value={number}
-          onChangeText={setNumber}
-          placeholder="+91-XXXXXXXXXX"
-          // secureTextEntry
-          keyboardType="numeric"
-          autoCorrect={false}
-          autoCapitalize="none"
+          style={styles.textInput}
+          placeholder="Username"
+          value={username}
+          onChangeText={setUsername}
         />
+        <Text style={styles.text}>Password</Text>
         <TextInput
-          style={[styles.input, styles.multilineText]}
-          value={message}
-          onChangeText={setMessage}
-          multiline
-          placeholder="message"
+          style={styles.textInput}
+          placeholder="Password"
+          value={password}
+          onChangeText={setPassword}
+          secureTextEntry
         />
-        <Text style={styles.text}>My number is {number}</Text>
-        <Text style={styles.text}>My message is {message}</Text>
-      </View>
-      <View style={styles.darkModeContainer}>
-        <Text style={styles.darkMode}>Dark Mode</Text>
-        <Switch
-          value={isDarkMode}
-          onValueChange={() => setDarkMode((previous) => !previous)}
-          trackColor={{ false: "blue", true: "red" }}
-          thumbColor="orange"
-        />
+        <View style={styles.buttonView}>
+          <Button title="Login" onPress={() => console.log("Login")} />
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -54,29 +44,33 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: "wheat",
     paddingTop: StatusBar.currentHeight,
+    alignItems: "stretch",
+    justifyContent: "center",
   },
-  darkModeContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-around",
-    backgroundColor: "lightyellow",
-    padding: 20,
+  buttonView: {
+    // flexDirection: "row",
+    // justifyContent: "space-around",
+    // alignItems: "center",
   },
-  input: {
-    height: 40,
-    padding: 5,
-    margin: 15,
-    borderWidth: 1,
-  },
-  multilineText: {
-    height: 100,
-    textAlignVertical: "top",
+  formContainer: {
+    margin: 10,
+    backgroundColor: "white",
+    padding: 15,
+    borderRadius: 15,
+    shadowRadius:10,
+    shadowOpacity: 0.1,
+    elevation: 0.5,
   },
   text: {
-    margin: 15,
-    padding: 5,
+    paddingVertical: 10,
     fontWeight: "bold",
+  },
+  textInput: {
+    borderWidth: 1,
+    height: 40,
+    padding: 10,
+    marginBottom: 15,
   },
 });
