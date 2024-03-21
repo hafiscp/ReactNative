@@ -12,6 +12,7 @@ import { useState } from "react";
 
 export default function App() {
   const [number, setNumber] = useState("");
+  const [message, setMessage] = useState("");
   return (
     <SafeAreaView style={styles.container}>
       <View>
@@ -24,9 +25,16 @@ export default function App() {
           keyboardType="numeric"
           autoCorrect={false}
           autoCapitalize="none"
-
+        />
+        <TextInput
+          style={[styles.input, styles.multilineText]}
+          value={message}
+          onChangeText={setMessage}
+          multiline
+          placeholder="message"
         />
         <Text style={styles.text}>My number is {number}</Text>
+        <Text style={styles.text}>My message is {message}</Text>
       </View>
     </SafeAreaView>
   );
@@ -43,6 +51,10 @@ const styles = StyleSheet.create({
     padding: 5,
     margin: 15,
     borderWidth: 1,
+  },
+  multilineText: {
+    height: 100,
+    textAlignVertical: "top",
   },
   text: {
     margin: 15,
