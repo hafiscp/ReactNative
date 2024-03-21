@@ -1,3 +1,3 @@
 ## Recent Screenshot (Updates)
 
-![Recent Screenshot](./assets/Screenshots/FormInput.png)
+![Recent Screenshot](./assets/Screenshots/GETReq.png)
