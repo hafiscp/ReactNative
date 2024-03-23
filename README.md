@@ -1,3 +1,3 @@
-## Recent Screenshot (Updates)
+## Recent Update
 
-![Recent Screenshot](./assets/Screenshots/Errorhandling.png)
+![Recent Screenshot](./assets/Screenshots/navigation.gif)
