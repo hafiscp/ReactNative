@@ -4,7 +4,9 @@ export default function Home({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.text}>Home Screen</Text>
-      <Button title="About" onPress={() => navigation.navigate("About")} />
+      <Button title="About" onPress={() => navigation.navigate("About",{
+        name:"Hafis from another Universe"
+      })} />
     </SafeAreaView>
   );
 }

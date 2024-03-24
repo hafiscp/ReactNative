@@ -10,8 +10,8 @@ import {
   FlatList,
 } from "react-native";
 
-import pokemonList from "./data.json";
-import groupedpokemon from "./groupedpokemon.json";
+import pokemonList from "../src/data/data.json";
+import groupedpokemon from "../src/data/groupedpokemon.json";
 
 export default function App() {
   return (
