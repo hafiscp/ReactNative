@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./screens/Home";
 import About from "./screens/About";
 import MoreAbout from "./screens/MoreAbout";
+import { Pressable, Text } from "react-native";
 
 const Stack = createNativeStackNavigator();
 
@@ -20,6 +21,11 @@ export default function App() {
           contentStyle: {
             backgroundColor: "#e8e4f4",
           },
+          headerRight: () => (
+            <Pressable onPress={() => alert("Pressed")}>
+              <Text style={{ color: "white" }}>Hello</Text>
+            </Pressable>
+          ),
         }}
       >
         <Stack.Screen
