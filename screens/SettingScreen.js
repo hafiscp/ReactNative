@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, StatusBar, Button } from "react-native";
 export default function SettingScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Hello from Setting Screen</Text>
+      <Text style={styles.text}>Setting Screen</Text>
       <Button
         title="Go to Dashboard"
         onPress={() => navigation.jumpTo("Dashboard")}

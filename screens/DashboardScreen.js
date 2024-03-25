@@ -3,11 +3,11 @@ import { View, Text, StyleSheet, StatusBar, Button } from "react-native";
 export default function DashboardScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Hello from Dashboard Screen</Text>
+      <Text style={styles.text}>Dashboard Screen</Text>
       <Button
-        title="Head to Settings"
+        title="About"
         onPress={() => {
-          navigation.jumpTo("Settings");
+          navigation.jumpTo("About");
         }}
       />
     </View>

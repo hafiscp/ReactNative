@@ -1,37 +1,21 @@
-import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
-import { createDrawerNavigator } from "@react-navigation/drawer";
-import DashboardScreen from "./screens/DashboardScreen";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Home from "./screens/Home";
+import About from "./screens/About";
 import SettingScreen from "./screens/SettingScreen";
+import DashboardScreen from "./screens/DashboardScreen";
 
-const Drawer = createDrawerNavigator();
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Drawer.Navigator
-        screenOptions={{
-          drawerActiveBackgroundColor: "#f5e5f5",
-          drawerActiveTintColor: "#000",
-        }}
-      >
-        <Drawer.Screen
-          name="Dashboard"
-          component={DashboardScreen}
-          options={{
-            title: "My Dashboard",
-            drawerLabel: "Dashboard",
-          }}
-        ></Drawer.Screen>
-        <Drawer.Screen
-          name="Settings"
-          component={SettingScreen}
-          options={{
-            title: "My Settings",
-            drawerLabel: "Settings",
-          }}
-        ></Drawer.Screen>
-      </Drawer.Navigator>
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen name="Settings" component={SettingScreen} />
+        <Tab.Screen name="Dashboard" component={DashboardScreen} />
+        <Tab.Screen name="About" component={About} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }
