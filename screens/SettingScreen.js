@@ -15,7 +15,7 @@ export default function SettingScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "wheat",
+    backgroundColor: "#f5e5f5",
     paddingTop: StatusBar.currentHeight,
     justifyContent: "center",
     alignItems: "center",
