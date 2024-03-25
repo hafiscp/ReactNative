@@ -1,43 +1,24 @@
+import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Home from "./screens/Home";
-import About from "./screens/About";
-import MoreAbout from "./screens/MoreAbout";
-import { Pressable, Text } from "react-native";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import DashboardScreen from "./screens/DashboardScreen";
+import SettingScreen from "./screens/SettingScreen";
 
-const Stack = createNativeStackNavigator();
+const Drawer = createDrawerNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="Home"
-        screenOptions={{
-          headerStyle: {
-            backgroundColor: "purple",
-          },
-          headerTintColor: "#fff",
-          headerTitleStyle: { fontWeight: "bold" },
-          contentStyle: {
-            backgroundColor: "#e8e4f4",
-          },
-          headerRight: () => (
-            <Pressable onPress={() => alert("Pressed")}>
-              <Text style={{ color: "white" }}>Hello</Text>
-            </Pressable>
-          ),
-        }}
-      >
-        <Stack.Screen
-          name="Home"
-          component={Home}
-          options={{
-            title: "Welcome Home",
-          }}
-        />
-        <Stack.Screen name="About" component={About} />
-        <Stack.Screen name="MoreAbout" component={MoreAbout} />
-      </Stack.Navigator>
+      <Drawer.Navigator>
+        <Drawer.Screen
+          name="Dashboard"
+          component={DashboardScreen}
+        ></Drawer.Screen>
+        <Drawer.Screen
+          name="Settings"
+          component={SettingScreen}
+        ></Drawer.Screen>
+      </Drawer.Navigator>
     </NavigationContainer>
   );
 }
