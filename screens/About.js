@@ -4,10 +4,7 @@ export default function About({ navigation, route }) {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.text}>About Screen</Text>
-      <Button
-        title="Settings"
-        onPress={() => navigation.navigate("Settings")}
-      />
+      <Button title="Home" onPress={() => navigation.navigate("Home")} />
     </SafeAreaView>
   );
 }
